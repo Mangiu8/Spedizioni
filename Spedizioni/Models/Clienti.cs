@@ -16,7 +16,7 @@ namespace Spedizioni.Models
         public bool IsAzienda { get; set; }
         [Remote("CheckCodFiscale", "Home", ErrorMessage = "Inserisci un codice fiscale valido")]
         public string CodiceFiscale { get; set; }
-        [Remote("CheckPIVA", "Home", ErrorMessage = "Inserisci una partita IVA valida")]
+        [Remote("CheckPartitaIva", "Home", ErrorMessage = "Inserisci una partita iva valida")]
         public string PartitaIva { get; set; }
     }
 }

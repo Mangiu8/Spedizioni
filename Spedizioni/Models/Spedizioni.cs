@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Spedizioni.Models
 {
-    public class SpedizioniCS
+    public class Spedizioni
     {
         public int IdSpedizione { get; set; }
         public int IdCliente { get; set; }
@@ -13,11 +13,10 @@ namespace Spedizioni.Models
         [StringLength(12, MinimumLength = 12,
         ErrorMessage = "Il codice deve essere di 12 caratteri")]
         public string codTracciamento { get; set; }
-        [DisplayName("Data di pubblicazione")]
+        [DisplayName("Data di spedizione")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        //[Remote("checkDataSpedizione", "Home", ErrorMessage = "la data deve essere uguale o superiore a quella odierna")]
-        [ValidateCurrentDate(ErrorMessage = "La data deve essere maggiore della data odierna.")]
+        [ValidateCurrentDate(ErrorMessage = "La data dev'essere maggiore o uguale a quella odierna.")]
         public DateTime dataSpedizione { get; set; }
         [DisplayName("Inserisci il peso della spedizione")]
         [Required(ErrorMessage = "Il codice è obbligatorio")]
@@ -38,11 +37,12 @@ namespace Spedizioni.Models
         [DisplayName("Inserisci il costo della spedizione")]
         [Required(ErrorMessage = "Il costo della spedizione e' obbligatorio")]
         public decimal costoSpedizione { get; set; }
-        [DisplayName("Data di pubblicazione")]
+        [DisplayName("Data di consegna")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        //[Remote("checkDataConsegna", "Home", ErrorMessage = "la data deve essere uguale o superiore a quella odierna")]
-        [ValidateCurrentDate(ErrorMessage = "La data deve essere maggiore della data odierna.")]
+        [ValidateCurrentDate(ErrorMessage = "La data dev'essere maggiore o uguale a quella odierna.")]
         public DateTime dataConsegna { get; set; }
+
+        public int IdStatoSpedizione { get; set; }
     }
 }

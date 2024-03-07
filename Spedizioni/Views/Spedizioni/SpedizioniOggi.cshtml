@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Spedizioni.Models.Spedizioni>
+
+@{
+    ViewBag.Title = "SpedizioniOggi";
+}
+
+<h3 class="text-center mt-4 fs-2">SPEDIZIONI IN CONSEGNA OGGI</h3>
+
+<table class="table bg-white bg-opacity-75">
+    <tr>
+        <th>
+            Spedizione
+        </th>
+        <th>
+            Cliente
+        </th>
+        <th>
+            Tracking
+        </th>
+        <th>
+            Data spedizione
+        </th>
+        <th>
+            Peso
+        </th>
+        <th>
+            Citta destinazione
+        </th>
+        <th>
+            Indirizzo
+        </th>
+        <th>
+            Destinatario
+        </th>
+        <th>
+            Costo
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdSpedizione)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdCliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.codTracciamento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dataSpedizione)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pesoSpedizione)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cittaDestinazione)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.indirizzoDestinazione)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nominativoDestinatario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.costoSpedizione)
+            </td>
+        </tr>
+    }
+
+</table>
